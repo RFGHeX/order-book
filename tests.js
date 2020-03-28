@@ -1,6 +1,6 @@
 const { expect } = require('chai')
 const { describe, it } = require('mocha')
-const reconcileOrder = require('./orderBook')
+const reconcileOrder = require('./order-book')
 
 describe('Order Book', () => {
   describe('reconcileOrder', () => {
