@@ -5,12 +5,12 @@ const reconcileOrder = (existingBook, incomingOrder) => {
       return toBook(existingBook, incomingOrder)
 
     default:
-      return determine(existingBook, incomingOrder)
+      return determineOrder(existingBook, incomingOrder)
   }
 
 }
 
-const determine = (existing, incoming) => {
+const determineOrder = (existing, incoming) => {
 
   for (let i = 0; i < existing.length; i++) {
 
