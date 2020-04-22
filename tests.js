@@ -1,6 +1,6 @@
 const { expect } = require('chai')
 const { describe, it } = require('mocha')
-const reconcileOrder = require('./orderBook')
+const reconcileOrder = require('./order-book')
 
 describe('Order Book', () => {
   describe('reconcileOrder', () => {
@@ -52,7 +52,7 @@ describe('Order Book', () => {
 
       const updatedBook = reconcileOrder(existingBook, incomingOrder)
 
-      expect(updatedBook).to.deep.equal([{ type: 'sell', quantity: 12, price: 6950 }, { type: 'buy', quantity: 5, price: 6150 }])
+      expect(updatedBook).to.deep.equal([{ type: 'buy', quantity: 5, price: 6150 }, { type: 'sell', quantity: 12, price: 6950 }])
     })
 
     it('partially fulfills an order, removes the matching order and adds the remainder of the order to the book when the book contains a matching order of a smaller quantity', () => {
@@ -79,7 +79,7 @@ describe('Order Book', () => {
 
       const updatedBook = reconcileOrder(existingBook, incomingOrder)
 
-      expect(updatedBook).to.deep.equal([{ type: 'sell', quantity: 12, price: 6950 }, { type: 'buy', quantity: 5, price: 6150 }])
+      expect(updatedBook).to.deep.equal([{ type: 'buy', quantity: 5, price: 6150 }, { type: 'sell', quantity: 12, price: 6950 }])
     })
 
     it('uses two existing orders to partially fulfill an order, removing the matching orders from the book and reducing the incoming order before adding it to the book', () => {
